@@ -53,9 +53,11 @@ function TripDetails() {
   return (
     <div>
       <p className="font-semibold text-2xl leading-8">Bahamas Family Trip</p>
-      <span className="text-[#676E7E] text-sm leading-6">
-        New York, United States of America Solo Trip
-      </span>
+      <p className="text-[#676E7E] text-sm leading-6 flex items-center">
+        <span>New York, United States of America</span>
+        <span className="mx-2 border-l border-[#676E7E] h-4"></span>
+        <span>Solo Trip</span>
+      </p>
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import Logo from "../icons/Logo";
+import Person from '../assets/person.svg'
+import CaretDown from '../assets/CaretDown.svg'
 import {
   RoadHorizon,
   Buildings,
@@ -116,7 +118,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
                 className="flex flex-col items-center gap-y-[0.5rem]"
                 key={index}
               >
-                <item.icon className="w-6 h-6 text-gray-600" />
+                <item.icon className="text-gray-600" />
                 <a
                   href="#"
                   className="text-[#647995] text-sm leading-tight text-center break-words hyphens-auto"
@@ -127,7 +129,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
             ))}
 
             <li className="flex flex-col items-center gap-y-[0.5rem]">
-              <button className="bg-[#0D6EFD] hover:bg-[#0D6EFD]/80 transition-colors duration-100 ease-out text-white text-sm leading-[1.375rem] px-[1.5rem] py-[0.5rem] rounded-sm h-[2.5rem] mt-1.5">
+              <button className="bg-[#0D6EFD] hover:bg-[#0D6EFD]/80 transition-colors duration-100 ease-out text-white text-sm leading-[1.375rem] px-[1rem] py-[0.5rem] rounded-sm h-[2.5rem] mt-1.5">
                 Subscribe
               </button>
             </li>
@@ -143,57 +145,63 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
                 Carts
               </a>
             </li>
-            <li className="flex flex-col items-center gap-y-[0.5rem]">
+            <li className="flex-col items-center gap-y-[0.5rem] hidden 2xl:flex">
               <PlusSquare className="w-6 h-6" />
               <a href="#" className="text-[#647995] text-sm leading-[1.375rem]">
                 Create
               </a>
             </li>
+            <li className="flex items-center">
+            <img className="hidden 2xl:block" src={Person} alt="person" />
+            <img src={CaretDown} alt="CaretDown" />
+            </li>
           </ul>
         </div>
       </header>
-      <main className="flex items-start container mx-auto max-w-full px-[2.5rem] gap-x-12">
+      <main className="flex items-start container mx-auto max-w-full 2xl:max-w-[100rem] px-[2.5rem] gap-x-12">
         <div className="w-[300px] bg-white shrink-0 rounded-sm p-6 h-[50rem]">
-          <ul className="flex flex-col gap-y-10">
-            <div className="flex flex-col gap-y-3">
-              {sideBarNavigation.map((item, index) => (
-                <li
-                  role="button"
-                  className="p-4 flex items-center cursor-pointer gap-x-[0.5rem] font-medium leading-6 text-[#647995] tracking-[-0.02em]"
-                  key={index}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          <div className="sticky top-0">
+            <ul className="flex flex-col gap-y-10">
+              <div className="flex flex-col gap-y-3">
+                {sideBarNavigation.map((item, index) => (
+                  <li
+                    role="button"
+                    className="p-4 flex items-center cursor-pointer gap-x-[0.5rem] font-medium leading-6 text-[#647995] tracking-[-0.02em] hover:bg-gray-100 transition-colors duration-200"
+                    key={index}
                   >
-                    <item.icon />
-                  </motion.div>
-                  <a href="#" className="leading-6 text-sm">
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </div>
-            <li>
-              <div
-                role="button"
-                className="flex hover:bg-[#E4E7EB] transition-colors duration-300 cursor-pointer items-center justify-between gap-x-[0.5rem] bg-[#F0F2F5] h-[5.375rem] p-4 rounded-sm"
-              >
-                <div className="flex items-center gap-x-[0.5rem]">
-                  <div className="w-[3.125rem] h-[3.125rem] bg-[#0D6EFD] rounded-[0.25rem] flex items-center justify-center">
-                    <p className="text-white text-[1.25rem] leading-[1.5rem] text-base">
-                      Go
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      <item.icon />
+                    </motion.div>
+                    <a href="#" className="leading-6 text-sm">
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </div>
+              <li>
+                <div
+                  role="button"
+                  className="flex hover:bg-[#E4E7EB] transition-colors duration-300 cursor-pointer items-center justify-between gap-x-[0.5rem] bg-[#F0F2F5] h-[5.375rem] p-4 rounded-sm"
+                >
+                  <div className="flex items-center gap-x-[0.5rem]">
+                    <div className="w-[3.125rem] h-[3.125rem] bg-[#0D6EFD] rounded-[0.25rem] flex items-center justify-center">
+                      <p className="text-white text-[1.25rem] leading-[1.5rem] text-base">
+                        Go
+                      </p>
+                    </div>
+                    <p className="text-sm leading-[1.375rem] text-[#647995]">
+                      Personal Account
                     </p>
                   </div>
-                  <p className="text-sm leading-[1.375rem] text-[#647995]">
-                    Personal Account
-                  </p>
-                </div>
 
-                <CaretUpDown />
-              </div>
-            </li>
-          </ul>
+                  <CaretUpDown />
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="flex-1">{children}</div>
       </main>
