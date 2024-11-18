@@ -15,7 +15,7 @@ import {
 } from "./components/ui/carousel";
 
 function App() {
-  const images = [Museum, Hotel]; // Add more image paths as needed
+  const images = [Hotel, Museum]; // Add more image paths as needed
 
   return (
     <AppLayout>
